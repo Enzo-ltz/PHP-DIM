@@ -5,10 +5,19 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
-class HomeController
+class HomeController extends AbstractController
 {
-    public function index(Request $request): Response {
+    public function __construct()
+    {
+    }
 
-        return new Response('it works');
+    function index(Request $request): Response
+    {
+        return $this->render(
+            "home/index",
+            [
+                "name"=>$request->query->get('name')
+            ]
+        );
     }
 }
