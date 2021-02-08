@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . "/../vendor/autoload.php";
+
+use Doctrine\ORM\Tools\Console\ConsoleRunner;
+
+$kernel = new \App\Kernel();
+$helperSet = ConsoleRunner::createHelperSet($kernel->getEntityManager());
+
+ConsoleRunner::run($helperSet, []);

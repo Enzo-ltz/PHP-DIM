@@ -1,0 +1,21 @@
+{
+  "name": "henri/tp2-01",
+  "require": {
+    "symfony/http-foundation": "^5.2",
+    "doctrine/orm": "^2.8"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^5.2"
+  },
+  "authors": [
+    {
+      "name": "decima",
+      "email": "h.larget@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
