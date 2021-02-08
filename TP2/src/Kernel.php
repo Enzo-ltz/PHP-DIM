@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Controller\HomeController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -38,12 +39,14 @@ class Kernel
             $className = "App\\Controller\\" . ucfirst($controller) . "Controller";
             if ($className === $defaultController && $method === "index") {
                 /** @todo we called index of $defaultController, make a redirection to / here WITHOUT using the header function. */
+                return new RedirectResponse("/");
             }
         }
 
         if (!class_exists($className)
             || !method_exists($className, $method)) {
             /** @todo return a not found response here (status code 404) */
+            return new Response('Not Found 404', Response::HTTP_NOT_FOUND);
         }
 
         $resolvedArguments = $this->parametersResolver($className, $method);

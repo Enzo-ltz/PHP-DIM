@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <title>Mon super Site</title>
+    <title>Enzo's site</title>
 </head>
 <body class="flex flex-col min-h-screen">
 <div>
@@ -22,6 +22,11 @@
 </div>
 
 <main class="flex-grow bg-gray-100 flex flex-col" role="main">
+<form action="" method="post">
+    <label for="name">Ton nom :</label>
+    <input type="text" id="name" name="name" placeholder="Jacquie">
+    <input type="submit" id="name" value="Activationnnn">            
+</form>
     <div class="flex-grow bg-white w-full max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
         <?php include $templateName . ".php"; ?>
     </div>
