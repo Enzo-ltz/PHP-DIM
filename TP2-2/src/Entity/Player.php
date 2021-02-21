@@ -20,22 +20,22 @@ class Player
     /**
      * @ORM\Column(type="string")
      */
-    private ?string $username;
+    private ?string $username="";
 
     /**
      * @ORM\Column(type="string")
      */
-    private ?string $email;
+    private ?string $email="";
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Game", inversedBy="owned")
-     */
-    private ?Game $owned;
+    // /**
+    //  * @ORM\ManyToMany(targetEntity="Game", inversedBy="owned")
+    //  */
+    // private ?Game $owned;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Score", mappedBy="player")
-     */
-    private ?Score $score;
+    // /**
+    //  * @ORM\OneToMany(targetEntity="Score", mappedBy="player")
+    //  */
+    // private ?Score $score;
 
     /**
      * @return int|null
@@ -85,36 +85,36 @@ class Player
         $this->email = $email;
     }
 
-    /**
-     * @return Game|null
-     */
-    public function getOwned(): ?Game
-    {
-        return $this->owned;
-    }
+    // /**
+    //  * @return Game|null
+    //  */
+    // public function getOwned(): ?Game
+    // {
+    //     return $this->owned;
+    // }
 
-    /**
-     * @param string|null $owned
-     */
-    public function setOwned(?Game $owned): void
-    {
-        $this->owned = $owned;
-    }
+    // /**
+    //  * @param string|null $owned
+    //  */
+    // public function setOwned(?Game $owned): void
+    // {
+    //     $this->owned = $owned;
+    // }
 
-    /**
-     * @return Score|null
-     */
-    public function getScore(): ?Score
-    {
-        return $this->score;
-    }
+    // /**
+    //  * @return Score|null
+    //  */
+    // public function getScore(): ?Score
+    // {
+    //     return $this->score;
+    // }
 
-    /**
-     * @param Score|null $score
-     */
-    public function setScore(?string $score): void
-    {
-        $this->score = $score;
-    }
+    // /**
+    //  * @param Score|null $score
+    //  */
+    // public function setScore(?string $score): void
+    // {
+    //     $this->score = $score;
+    // }
 
 }

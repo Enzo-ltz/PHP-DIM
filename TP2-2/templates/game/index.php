@@ -5,21 +5,21 @@
 
 <div class="flex bg-white md:h-60 h-24	 dark:bg-gray-800 rounded-lg shadow mb-5">
     <div class="flex-none w-24 md:w-60  relative">
-        <img src="<?= $game["image"]; ?>" class="absolute rounded-lg inset-0 w-full h-full object-cover"/>
+        <img src="<?= $game->getImage(); ?>" class="absolute rounded-lg inset-0 w-full h-full object-cover"/>
     </div>
     <div class="flex-auto p-6">
         <div class="flex flex-wrap">
             <h1 class="flex-auto text-xl font-semibold dark:text-gray-50">
-                <?= $game["name"]; ?>
+            <?= $game->getName(); ?>
             </h1>
             <div class="text-xl font-semibold text-gray-500 dark:text-gray-300">
-                <a href="/game/show?id=<?= $game["id"]; ?>">
+                <a href="/game/show?id=<?= $game->getId(); ?>">
                     <i class="fas fa-eye"></i>
                 </a>
-                <a href="/game/edit?id=<?= $game["id"]; ?>">
+                <a href="/game/edit?id=<?= $game->getId(); ?>">
                     <i class="fas fa-edit"></i>
                 </a>
-                <a href="/game/delete?id=<?= $game["id"]; ?>"
+                <a href="/game/delete?id=<?= $game->getId(); ?>"
                    onclick="return confirm('Are you sure you want to delete it?')">
                     <i class="fas fa-trash"></i>
                 </a>

@@ -20,22 +20,22 @@ class Game
     /**
      * @ORM\Column(type="string")
      */
-    private ?string $name;
+    private ?string $name="";
 
     /**
      * @ORM\Column(type="string")
      */
-    private ?string $image;
+    private ?string $image="";
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Player", mappedBy="Player")
-     */
-    private ?Player $owned;
+    // /**
+    //  * @ORM\ManyToMany(targetEntity="Player", mappedBy="Player")
+    //  */
+    // private ?Player $owned;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Score", mappedBy="Player")
-     */
-    private ?Score $score;
+    // /**
+    //  * @ORM\OneToMany(targetEntity="Score", mappedBy="Player")
+    //  */
+    // private ?Score $score;
 
     /**
      * @return int|null
@@ -82,34 +82,34 @@ class Game
     {
         $this->image = $image;
     }
-    /**
-     * @return Player|null
-     */
-    public function getOwned(): ?Player
-    {
-        return $this->owned;
-    }
+    // /**
+    //  * @return Player|null
+    //  */
+    // public function getOwned(): ?Player
+    // {
+    //     return $this->owned;
+    // }
 
-    /**
-     * @param Player|null $owned
-     */
-    public function setOwned(?Player $owned): void
-    {
-        $this->owned = $owned;
-    }
-    /**
-     * @return Score|null
-     */
-    public function getScore(): ?Score
-    {
-        return $this->score;
-    }
+    // /**
+    //  * @param Player|null $owned
+    //  */
+    // public function setOwned(?Player $owned): void
+    // {
+    //     $this->owned = $owned;
+    // }
+    // /**
+    //  * @return Score|null
+    //  */
+    // public function getScore(): ?Score
+    // {
+    //     return $this->score;
+    // }
 
-    /**
-     * @param Score|null $score
-     */
-    public function setScore(?Score $score): void
-    {
-        $this->score = $score;
-    }
+    // /**
+    //  * @param Score|null $score
+    //  */
+    // public function setScore(?Score $score): void
+    // {
+    //     $this->score = $score;
+    // }
 }

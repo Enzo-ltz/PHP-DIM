@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 class HomeController extends AbstractController
 {
 
-    public function index(Request $request, EntityManagerInterface $entityManager): Response
+    public function index(Request $request): Response
     {
         return $this->render("home/index", ["name" => $request->query->get('name')]);
     }
