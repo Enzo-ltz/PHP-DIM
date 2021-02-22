@@ -27,7 +27,7 @@
 
 <main class="flex-grow bg-gray-100 flex flex-col" role="main">
     <div class="flex-grow	 w-full max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
-            <?php include $templateName . ".php"; ?>
+            {% block body %}{% endblock %}
         </div>
     </div>
 </main>

@@ -2,7 +2,8 @@
   "name": "henri/tp2-01",
   "require": {
     "symfony/http-foundation": "^5.2",
-    "doctrine/orm": "^2.8"
+    "doctrine/orm": "^2.8",
+    "twig/twig": "^3.3"
   },
   "require-dev": {
     "symfony/var-dumper": "^5.2"

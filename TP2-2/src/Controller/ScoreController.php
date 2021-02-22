@@ -22,26 +22,46 @@ class ScoreController extends AbstractController
         $games = $entityManager->getRepository(Game::class)->findAll();
         $players = $entityManager->getRepository(Player::class)->findAll();
 
-        return $this->render("score/index", ["scores" => $scores,
+        return $this->render("score/index.html.twig", ["scores" => $scores,
             "games" => $games, "players" => $players]);
     }
 
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
         $score = new Score();
-
+        
         if ($request->getMethod() == Request::METHOD_POST) {
             /**
              * @todo enregistrer l'objet
              */
+
+            $player = $entityManager->getRepository(Player::class)->find($request->get('player'));
+            $game = $entityManager->getRepository(Game::class)->find($request->get('game'));
+            
             $score->setScore($request->get('score'));
-            $score->setPlayer($request->get('player'));
+            $score->setGame($game);
+            $score->setPlayer($player);
 
             $entityManager->persist($score);
             $entityManager->flush();
 
-            return $this->redirectTo("/score");
         }
+        
+        return $this->redirectTo("/score");
+    }
+
+    public function delete($id,  EntityManagerInterface $entityManager): Response
+    {
+        /**
+         * @todo supprimer l'objet
+         */
+
+        $score = $entityManager->getRepository(Score::class)->find($id);
+        $entityManager->remove($score);
+        $entityManager->flush();
+         
+        return $this->redirectTo("/score");
+
     }
 
 }

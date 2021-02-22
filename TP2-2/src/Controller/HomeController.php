@@ -14,6 +14,6 @@ class HomeController extends AbstractController
 
     public function index(Request $request): Response
     {
-        return $this->render("home/index", ["name" => $request->query->get('name')]);
+        return $this->render("home/index.html.twig", ["name" => $request->query->get('name')]);
     }
 }

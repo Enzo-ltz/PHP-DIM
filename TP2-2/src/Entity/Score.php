@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity()
@@ -25,17 +26,22 @@ class Score
     /**
      * @ORM\Column(type="datetime")
      */
-    private ?string $created_at;
-
+    private \DateTime $created_at;
+    
     /**
      * @ORM\ManyToOne(targetEntity="Player", inversedBy="Player")
      */
     private ?Player $player;
-
+    
     /**
      * @ORM\ManyToOne(targetEntity="Game", inversedBy="Game")
      */
     private ?Game $game;
+    
+    public function __construct()
+    {
+        $this->created_at = new \DateTime();
+    }
 
      /**
      * @return int|null
@@ -69,17 +75,17 @@ class Score
         $this->score = $score;
     }
     /**
-     * @return string|null
+     * @return datetime|null
      */
-    public function getCreatedAt(): ?string
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->created_at;
     }
 
     /**
-     * @param string|null $created_at
+     * @param datetime|null $created_at
      */
-    public function setCreatedAt(?string $created_at): void
+    public function setCreatedAt(?\DateTime $created_at): void
     {
         $this->created_at = $created_at;
     }
