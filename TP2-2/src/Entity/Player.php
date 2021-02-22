@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity()
@@ -32,10 +33,31 @@ class Player
     //  */
     // private ?Game $owned;
 
-    // /**
-    //  * @ORM\OneToMany(targetEntity="Score", mappedBy="player")
-    //  */
-    // private ?Score $score;
+    /**
+     * @ORM\OneToMany(targetEntity="Score", mappedBy="player")
+     */
+    private $scores;
+
+    public function __construct() {
+        $this->scores = new ArrayCollection();
+    }
+
+    public function addScore(Score $score)
+    {
+        if (!$this->scores->contains($score)) {
+            $this->scores[] = $score;
+            $score->setPlayer($this);
+        }
+    }
+    public function removeScore(Score $score)
+    {
+        if ($this->scores->removeElement($score)) {
+            if ($score->getPlayer() === $this){
+                $score->setPlayer(null);
+            }
+        }
+    }
+
 
     /**
      * @return int|null
