@@ -7,11 +7,13 @@ use App\FakeData;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Routing\Annotation\Route;
 
+#[Route("/game",name:"game_")]
 
 class GameController extends AbstractController
 {
-
+    #[Route("",name:"index")]
     public function index(EntityManagerInterface $entityManager): Response
     {
         /**
@@ -23,6 +25,7 @@ class GameController extends AbstractController
 
     }
 
+    #[Route("/add",name:"add")]
     public function add(Request $request, EntityManagerInterface $entityManager): Response
     {
         // $game = FakeData::games(1)[0];
@@ -43,7 +46,7 @@ class GameController extends AbstractController
         return $this->render("game/form.html.twig", ["game" => $game]);
     }
 
-
+    #[Route("/show/{id}",name:"show")]
     public function show($id, EntityManagerInterface $entityManager): Response
     {
         // $game = FakeData::games(1)[0];
@@ -51,7 +54,7 @@ class GameController extends AbstractController
         return $this->render("game/show.html.twig", ["game" => $game]);
     }
 
-
+    #[Route("/edit/{id}",name:"edit")]
     public function edit($id, Request $request, EntityManagerInterface $entityManager): Response
     {
         $game = FakeData::games(1)[0];
@@ -72,6 +75,7 @@ class GameController extends AbstractController
 
     }
 
+    #[Route("/delete/{id}",name:"delete")]
     public function delete($id, EntityManagerInterface $entityManager ): Response
     {
         /**

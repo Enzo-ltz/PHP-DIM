@@ -23,13 +23,13 @@
                     </span>
                     <span class="text-gray-400 text-xs">
 
-                        <a class="hover:text-gray-600" href="/player/show?id={{player.id}}">
+                        <a class="hover:text-gray-600" href="{{ path("player_show",{id: player.id}) }}">
                             <i class="fas fa-eye"></i>
                         </a>
-                        <a class="hover:text-gray-600" href="/player/edit?id={{player.id}}">
+                        <a class="hover:text-gray-600" href="{{ path("player_edit",{id: player.id}) }}">
                             <i class="fas fa-edit"></i>
                         </a>
-                        <a class="hover:text-gray-600" href="/player/delete?id={{player.id}}">
+                        <a class="hover:text-gray-600" href="{{ path("player_delete",{id: player.id}) }}">
                             <i class="fas fa-trash"></i>
                         </a>
                     </span>
