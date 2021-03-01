@@ -26,6 +26,10 @@ abstract class AbstractController
         return new RedirectResponse($path);
     }
 
+    public function redirectToRoute(){
+        return $this->redirectTo($this->router, 'generate');
+    }
+
     private $router;
 
     /**
